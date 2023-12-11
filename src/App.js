@@ -1,28 +1,22 @@
-import Header from './Header';
 import './App.css';
-import Best from './Bestproduct';
-import LastProducts from './Lastproducts';
-import Footer from './Footer';
+import Home from './page/Home'
+import Contact from './page/Contact';
+import Boutique from './page/Boutique';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CgvPage from './page/CgvPage';
 
 function App() {
 
-  const products = [
-    { id: 1, title: "Canapé cuir", price: 1000, rating: 4.5, isPublished: true },
-    { id: 2, title: "Canapé tissu", price: 800, rating: 3.5, isPublished: false },
-    { id: 3, title: "Canapé velours", price: 1200, rating: 5, isPublished: true },
-    { id: 4, title: "Canapé lin", price: 900, rating: 2.5, isPublished: false },
-    { id: 5, title: "Canapé cotton", price: 900, rating: 2.2, isPublished: true },
-    { id: 6, title: "Canapé cuir de vache", price: 600, rating: 1.5, isPublished: false },
-    { id: 7, title: "Canapé cuir de chèvre", price: 700, rating: 2, isPublished: true },
-  ];
+ 
   return (
-    <div class="App">
-    <Header />
-    <Best productsProp={products}/>
-    <LastProducts productsProp={products}/>
-
-    <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/boutique" element={<Boutique />} />
+          <Route path="/condition-de-ventes" element={<CgvPage />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
